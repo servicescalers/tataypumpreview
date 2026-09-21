@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Brand tokens pulled directly from tataypump.com's live CSS custom
+   properties (--red, --deep-blue, --light-red, --light-black). --surface is
+   the one non-brand addition: a neutral off-white for alternating section
+   backgrounds, since the source site itself only ever uses pure white. */
+:root {
+  --brand-red: #b21b41;
+  --brand-red-light: #ff668c;
+  --brand-navy: #112c4a;
+  --ink: #202020;
+  --surface: #ffffff;
+  --surface-alt: #f7f5f3;
+}
+
+@theme inline {
+  --color-brand-red: var(--brand-red);
+  --color-brand-red-light: var(--brand-red-light);
+  --color-brand-navy: var(--brand-navy);
+  --color-ink: var(--ink);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+body {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
