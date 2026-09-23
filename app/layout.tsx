@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { poppins, inter } from "./fonts";
 import { BUSINESS } from "./components/reviewsData";
 import { buildLocalBusinessJsonLd, SITE_URL } from "./structuredData";
@@ -58,6 +59,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${poppins.variable} ${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-[family-name:var(--font-body)]">
+        {/* Google tag (gtag.js) — beforeInteractive injects this into the
+            initial HTML <head>, same placement Google's own install
+            instructions ask for. */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-17HCMFY1J9"
+          strategy="beforeInteractive"
+        />
+        <Script id="ga4-init" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-17HCMFY1J9');`}
+        </Script>
+
         {children}
         <script
           type="application/ld+json"
