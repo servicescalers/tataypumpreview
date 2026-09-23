@@ -1,6 +1,6 @@
 import { BUSINESS, PLATFORM_REVIEWS } from "./components/reviewsData";
 
-export const SITE_URL = "https://www.tataypumpreview.com";
+export const SITE_URL = "https://www.tataypumpreviews.com";
 
 function yelpIsoDate(date: string): string | undefined {
   const parsed = new Date(date);
